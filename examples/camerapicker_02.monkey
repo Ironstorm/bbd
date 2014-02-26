@@ -27,6 +27,7 @@ Class MyApp Extends App Implements IOnCameraPickComplete, IOnLoadImageComplete
 		camerapicker = New CameraPicker
 		camerapicker.SetScaleType(2)															' Scale the image to fit in width and height
 		camerapicker.SetImageSize(DeviceWidth(), DeviceHeight())								' Scale image to the devices resolution
+		camerapicker.DeleteGalleryImage(True)													' Do not add the image to the user gallery
 		SetUpdateRate(60)
 	End
 	
