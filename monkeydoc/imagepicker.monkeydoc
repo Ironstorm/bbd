@@ -1,0 +1,78 @@
+# Module ImagePicker
+
+This module gives you the ability to load an image from the devices image gallery. Currently it's only supported by Android. More coming soon.
+
+# Import brl.asyncevent
+
+# Interface IOnImagePickComplete
+
+# Method OnImagePickComplete:Void( result:String )
+
+Called when the user selected a picture or pressed the Back-Button.
+
+@result can be one of:
+
+| Result		| Description
+| ""			| User pressed Back-Button or an error occured
+| path:String	| Returns the "monkey://external/yourimagename.jpg" path
+
+# Class ImagePicker
+
+The class ImagePicker provides the necessary methods to load an image from the devices image gallery.
+
+# Method OpenImagePickerAsync:Void(imageName:String, onComplete:IOnImagePickComplete)
+
+*Description*
+
+Opens the image gallery.
+
+*Details*
+
+Opens the image gallery. The result will be catch in "OnImagePickComplete". "imageName" will be the filename of the image.
+
+# Method SetImageSize:Void(_width:Int, _height:Int)
+
+*Description*
+
+Set the size of the scaled image.
+
+*Details*
+
+If you set the scale mode higher than 0 (no scale), you have to set the resolution of the scaled image.
+
+This overload of "SetImageSize(width, height)" is commonly used in combination with scale mode 1 or 2. 
+
+# Method SetImageSize:Void(_size:Int)
+
+*Description*
+
+Set the size of the scaled image.
+
+*Details*
+
+If you set the scale mode higher than 0 (no scale), you have to set the resolution of the scaled image.
+
+This overload of "SetImageSize(size)" is commonly used in combination with any scale mode higher than 2. 
+
+# Method SetScaleType:Void(type:Int)
+
+*Description*
+
+Define how the captured image will be scaled.
+
+*Details*
+
+Instead of using the full resolution of an image it would be better to scale the original image. Monkey cant handle those big images taken with the builtin camera or others.
+
+ImagePicker supports many different scale modes. 
+
+<b>Scale modes</b>
+
+Those ScaleModes are supported:
+<ul><li>0 = No scale (caution! Image could be to big to handle by monkey!)</li>
+<li>1 = Scale by width and height set with [[SetImageSize]]()</li>
+<li>2 = Scale the image to fit in width and height</li>
+<li>3 = Scale height relative to width</li>
+<li>4 = Scale width relative to height</li>
+<li>5 = Scale long side</li>
+<li>6 = Scale small side</li></ul>

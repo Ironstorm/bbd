@@ -1,0 +1,8 @@
+***** v01 *****
+
+Initial release.
+
+***** v00 *****
+
+- Added: CameraPick for Android
+- Added: ImagePick for Android

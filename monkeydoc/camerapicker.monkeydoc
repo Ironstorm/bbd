@@ -1,0 +1,96 @@
+# Module CameraPicker
+
+This module gives you the ability to call the camera of a device and retrieve the taken picture. Currently it's only supported by Android. More coming soon.
+
+# Import brl.asyncevent
+
+# Interface IOnCameraPickComplete
+
+# Method OnCameraPickComplete:Void( result:String )
+
+Called when the camera has taken a picture or the user pressed the Back-Button.
+
+@result can be one of:
+
+| Result		| Description
+| ""			| User pressed Back-Button or an error occured
+| path:String	| Returns the "monkey://external/yourimagename.jpg" path
+
+# Class CameraPicker
+
+The class CameraPicker provides the necessary methods to capture an image from the devices camera.
+
+# Method OpenCameraPickerAsync:Void(imageName:String, onComplete:IOnCameraPickComplete)
+
+*Description*
+
+Starts the camera.
+
+*Details*
+
+Starts the camera. The result will be catch in "OnCameraPickComplete". "imageName" will be the filename of the image.
+
+# Method SetImageSize:Void(_width:Int, _height:Int)
+
+*Description*
+
+Set the size of the scaled image.
+
+*Details*
+
+If you set the scale mode higher than 0 (no scale), you have to set the resolution of the scaled image.
+
+This overload of "SetImageSize(width, height)" is commonly used in combination with scale mode 1 or 2. 
+
+# Method SetImageSize:Void(_size:Int)
+
+*Description*
+
+Set the size of the scaled image.
+
+*Details*
+
+If you set the scale mode higher than 0 (no scale), you have to set the resolution of the scaled image.
+
+This overload of "SetImageSize(size)" is commonly used in combination with any scale mode higher than 2. 
+
+# Method SetScaleType:Void(type:Int)
+
+*Description*
+
+Define how the captured image will be scaled.
+
+*Details*
+
+Instead of using the full resolution of a camera it would be better to scale the captured image. Monkey cant handle such big images.
+
+CameraPicker supports many different scale modes. 
+
+<b>Scale modes</b>
+
+Those ScaleModes are supported:
+<ul><li>0 = No scale (caution! Image could be to big to handle by monkey!)</li>
+<li>1 = Scale by width and height set with [[SetImageSize]]()</li>
+<li>2 = Scale the image to fit in width and height</li>
+<li>3 = Scale height relative to width</li>
+<li>4 = Scale width relative to height</li>
+<li>5 = Scale long side</li>
+<li>6 = Scale small side</li></ul>
+
+# Method DeleteGalleryImage:Void(_bool:Bool = False)
+
+*Description*
+
+Define if the gallery image should be deleted.
+
+*Details*
+
+When the user takes a picture with the camera, android stores a duplicate image in the users gallery. While CameraPicker stores the image in the external app folder.
+
+If you dont want to display a duplicate image in the users gallery, set this to true. CameraPicker will delete it after saved it to the external app folder.
+
+# Method HasCamera:Bool()
+
+*Description*
+
+Returns true if the device has a camera
