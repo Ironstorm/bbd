@@ -172,7 +172,7 @@ class BBCameraPicker extends ActivityDelegate {
 	public Boolean HasCamera(){
 		PackageManager pm = _activity.getPackageManager();
 
-		if (pm.hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
+		if (pm.hasSystemFeature(PackageManager.FEATURE_CAMERA) || pm.hasSystemFeature(PackageManager.FEATURE_CAMERA_FRONT)) {
 			return true;
 		}
 		return false;
