@@ -5,7 +5,7 @@
 	Author:       Dominik Kollon
 	Contact:      d.kollon@blackbird-design.de
 	
-	Repository:   http://code.google.com/p/fantomengine/
+	Repository:   https://github.com/Ironstorm/bbd
 	
 	License:      MIT
 #End

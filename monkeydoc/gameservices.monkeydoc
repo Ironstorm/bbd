@@ -1,0 +1,59 @@
+# Module GameServices
+
+The GameService module integrates the Play Game Services SDK to monkey.
+
+The Play Game Services SDK provides Game services that lets you easily integrate gaming features such as achievements, leaderboards and real-time multiplayer on Android.
+
+Please have a look at the "documentation" folder for a detailed overview and a guide to setup this module.
+
+# Class GameService
+
+The GameService class integrates the Play Game Services SDK.
+
+# Method beginUserSignIn:Void()
+
+Initiate the sign-in flow.
+
+After users sign in successfully for the first time in your game, your game should sign them in automatically whenever they start the game again, until they explicitly sign out.
+
+You have to save the sign-in state by yourself. For example with "SaveState" and "LoadState".
+
+# Method isLoggedIn:Bool()
+
+Determine whether the user is signed in or not. 
+
+# Method signOut:Void()
+
+Initiate the sign-out flow
+
+Your game should save a state to indicate that the user explicitly signed out, then check that state the next time the game starts. Based on the saved state value, your game can then determine whether or not to call beginUserSignIn() to sign the user automatically in.
+
+# Method submitHighscore:Void(id:String, points:Int)
+
+Updates the user score on the leaderboard.
+
+# Method showLeaderBoard:Void(id:String)
+
+Shows the default leaderboard UI.
+
+# Method unlockAchievement:Void(id:String)
+
+Unlocks achievement.
+
+If the achievement is hidden, it becomes automatically visible for the user
+
+# Method incrementAchievement:Void(id:String, steps:Int)
+
+Adds the given steps to the achievement.
+
+Play Games services automatically unlocks the achievement once it reaches its required number of steps.
+
+If the achievement is hidden, it becomes automatically visible for the user.
+
+# Method revealAchievement:Void(id:String)
+
+Reveals a hidden achievement.
+
+# Method showAchievements:Void()
+
+Shows the player's achievements in the default UI.

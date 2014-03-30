@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>GameService module for MonkeyX: SignIn</title>
+
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<style type="text/css">
+
+	body {
+		font-family: Arial, sans;
+		font-size: 13px;
+		color: #1D1D1D;	
+		line-height: 22px;
+	}
+	
+	.wrapper {
+		margin: 0 auto;
+		width: 900px;
+	}
+	
+	h2 {
+		font-weight: normal;
+		font-size: 22px;
+		display: block;
+		border-bottom: 1px solid #CACACA;
+		margin: 32px 0 16px;
+	}
+	
+	h1 {
+		font-weight: normal;
+		font-size: 28px;
+		display: block;
+		border-bottom: 1px solid #CACACA;
+		margin: 32px 0 16px;
+	}
+	
+	pre {
+		margin: 20px 0;
+		padding: 6px 10px;
+		border: 1px solid #B8B8B8;
+		background: #F8F8F8;
+		font-family: 'Source Code Pro', ;
+		font-size: 13px;
+		color: #016C00;
+	}
+	
+	aside.warning {
+		background: #fcc;
+		border-left: 6px solid #a03;
+		padding: 10px;
+		margin-bottom: 20px;
+	}
+	
+</style>
+
+</head>
+
+<body>
+<div class="wrapper">
+<h1>Best practice: SignIn</h1>
+<p>The GameService module doesn't sign in automatically. You have to do it by yourself.<a href="https://developers.google.com/games/services/" title="Google Play Game Services Documentation"></a></p>
+<h2>Providing a sign-in button</h2>
+<p>If the user starts the game for the first time, you should mention the advantages of your Game Services. For example show a message or display a signin button in the main menu.<br>
+  When users click the sign-in button, your game should initiate the sign-in flow with the following command:</p>
+<pre>gameservice.beginUserSignIn()</pre>
+<p>If the sign-in process was successful, the command:</p>
+<pre>gameservice.isLoggedIn()</pre>
+<p>should return true. Hide the sign-in button and display a sign-out button. So the user have the ability to sign-out.</p>
+<h2>Signing the player in at startup</h2>
+<p>After users sign in successfully for the first time in your game, your game should sign them in automatically whenever they start the game again, until they explicitly sign out.</p>
+<p>You have to save the sign-in state by yourself. For example with &quot;SaveState&quot; and &quot;LoadState&quot;. </p>
+<h2>Checking if a user is signed in</h2>
+<p>You can call the</p>
+<pre>gameservice.isLoggedIn()</pre>
+<p>method to determine whether the user is signed in or not. </p>
+<h2>Signing the player out</h2>
+<p>To initiate the sign-out flow, simply call </p>
+<pre>gameservice.signOut()</pre>
+<p>Also, your game should save a state to indicate that the user explicitly signed out, then check that state the next time the game starts. Based on the saved state value, your game can then determine whether or not to call beginUserSignIn() to sign the user automatically in.</p>
+<h2 id="next_steps">Next steps</h2>
+<p>Learn more about using Games services with MonkeyX:</p>
+<ul>
+  <li>SignIn</li>
+  <li><a href="achievements.html">Achievements</a></li>
+  <li><a href="leaderboards.html">Leaderboards</a></li>
+</ul>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>

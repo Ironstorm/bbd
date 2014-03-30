@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>GameService module for MonkeyX: Achievements</title>
+
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<style type="text/css">
+
+	body {
+		font-family: Arial, sans;
+		font-size: 13px;
+		color: #1D1D1D;	
+		line-height: 22px;
+	}
+	
+	.wrapper {
+		margin: 0 auto;
+		width: 900px;
+	}
+	
+	h2 {
+		font-weight: normal;
+		font-size: 22px;
+		display: block;
+		border-bottom: 1px solid #CACACA;
+		margin: 32px 0 16px;
+	}
+	
+	h1 {
+		font-weight: normal;
+		font-size: 28px;
+		display: block;
+		border-bottom: 1px solid #CACACA;
+		margin: 32px 0 16px;
+	}
+	
+	pre {
+		margin: 20px 0;
+		padding: 6px 10px;
+		border: 1px solid #B8B8B8;
+		background: #F8F8F8;
+		font-family: 'Source Code Pro', ;
+		font-size: 13px;
+		color: #016C00;
+	}
+	
+	aside.warning {
+		background: #fcc;
+		border-left: 6px solid #a03;
+		padding: 10px;
+		margin-bottom: 20px;
+	}
+	
+</style>
+
+</head>
+
+<body>
+<div class="wrapper">
+<h1>Best practice: Achievements</h1>
+<p>You can use the GameService module to unlock and display achievements in your game.</p>
+<h2 id="understanding_achievements">Understanding achievements</h2>
+<p>If you haven't already done so, you might find it helpful to review the <a href="https://developers.google.com/games/services/common/concepts/achievements">achievements game concepts</a>.</p>
+<h2 id="unlocking_achievements">Unlocking achievements</h2>
+<p>To unlock an achievement, call the unlockAchievement() method and and pass in the achievement ID.</p>
+<pre translate="no">gameservice.unlockAchievement("achievement_id")</pre>
+<p>If the achievement is of the <em>incremental</em> type (that is, several steps are required to unlock it), call incrementAchievement() instead.</p>
+<pre translate="no">gameservice.incrementAchievement("achievment_id", 1)<br></pre>
+<p>You do not need to write additional code to unlock the achievement; Play Games services automatically unlocks the achievement once it reaches its required number of steps. If the achievement is hidden, it becomes automatically visible for the user once one of the methods are called.</p>
+<h2 id="unlocking_achievements2">Reveal achievements</h2>
+<p>You have the option to hide certain achievements. To show those achievements to the user, just call the revealAchievement() method.</p>
+<pre translate="no">gameservice.revealAchievement("achievement_id")
+</pre>
+<h2 id="displaying_achievements">Displaying achievements</h2>
+<p>To show the player's achievements, simply call showAchievements().</p>
+<pre translate="no">gameservice.showAchievements()</pre>
+<h2 id="next_steps">Next steps</h2>
+<p>Learn more about using Games services with MonkeyX:</p>
+<ul>
+  <li><a href="signin.html">SignIn</a></li>
+  <li>Achievements</li>
+  <li><a href="leaderboards.html">Leaderboards</a></li>
+</ul>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>

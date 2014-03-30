@@ -1,3 +1,7 @@
+***** v02 *****
+
+- Added: GameServices for Android
+
 ***** v01 *****
 
 Initial release.

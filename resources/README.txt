@@ -1,0 +1,1 @@
+Copy the "res" folder to your android build dir!

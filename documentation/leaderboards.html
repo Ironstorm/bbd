@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>GameService module for MonkeyX: Leaderboards</title>
+
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<style type="text/css">
+
+	body {
+		font-family: Arial, sans;
+		font-size: 13px;
+		color: #1D1D1D;	
+		line-height: 22px;
+	}
+	
+	.wrapper {
+		margin: 0 auto;
+		width: 900px;
+	}
+	
+	h2 {
+		font-weight: normal;
+		font-size: 22px;
+		display: block;
+		border-bottom: 1px solid #CACACA;
+		margin: 32px 0 16px;
+	}
+	
+	h1 {
+		font-weight: normal;
+		font-size: 28px;
+		display: block;
+		border-bottom: 1px solid #CACACA;
+		margin: 32px 0 16px;
+	}
+	
+	pre {
+		margin: 20px 0;
+		padding: 6px 10px;
+		border: 1px solid #B8B8B8;
+		background: #F8F8F8;
+		font-family: 'Source Code Pro', ;
+		font-size: 13px;
+		color: #016C00;
+	}
+	
+	aside.warning {
+		background: #fcc;
+		border-left: 6px solid #a03;
+		padding: 10px;
+		margin-bottom: 20px;
+	}
+	
+</style>
+
+</head>
+
+<body>
+<div class="wrapper">
+<h1>Best practice: Leaderboards</h1>
+<p>You can use the GameService module to create visual leaderboards, record a player's score, and compare the score against the player's score from previous game sessions.</p>
+<h2 id="understanding_achievements">Understanding leaderboards</h2>
+<p>If you haven't already done so, you might find it helpful to review the <a href="https://developers.google.com/games/services/common/concepts/leaderboards">leaderboards game concepts</a>.</p>
+<h2 id="updating_the_players_score">Updating the player's score</h2>
+<p>When the player's score changes (for example, when the player finishes the game), your game can update their score on the leaderboard by calling submitHighscore(), and passing in the leaderboard ID and the raw score value.</p>
+<pre translate="no">gameservice.submitHighscore(&quot;leaderboard_id&quot;, 1234);
+</pre>
+<h2 id="displaying_achievements">Displaying leaderboards</h2>
+<p>To show the default leaderboard UI, simply call showLeaderBoard().</p>
+<pre translate="no">gameservice.showLeaderBoard(&quot;leaderboard_id&quot;)</pre>
+<h2 id="next_steps">Next steps</h2>
+<p>Learn more about using Games services with MonkeyX:</p>
+<ul>
+  <li><a href="signin.html">SignIn</a></li>
+  <li><a href="achievements.html">Achievements</a></li>
+  <li>Leaderboards</li>
+</ul>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
