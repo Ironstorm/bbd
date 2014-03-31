@@ -116,7 +116,6 @@ Class MyApp Extends App
 	End
 	
 	Method OnUpdate()
-		UpdateAsyncEvents
 		
 			If TouchHit() Then
 				If gameservice.isLoggedIn() = False Then
@@ -143,7 +142,13 @@ End</pre>
 <p>
   <aside class="warning"><strong>Warning:</strong> bbd.gameservice isn't finished yet! Please be sure and test your game before releasing it!</aside>
 </p>
-<h2 id="next_steps">Next steps</h2>
+<h2 id="next_steps">Admob and Google Play Game Services</h2>
+<p>The Admob classes are now contained within Google play Services. So if you attempt to add the Admob-6.4.1 lib (withone the Admob module from BRL does) to your project you will get dex error because of duplicate classes.</p>
+<p>To get rid of them, the GameService module provides an own Admob integration, based on the BRL module of MonkeyX. Just replace the import:</p>
+<pre>Import brl.admob</pre>
+<p>with</p>
+<pre>Import bbd.gameservicesadmob</pre>
+<h2>Next steps</h2>
 <p>Learn more about using Games services with MonkeyX:</p>
 <ul>
   <li><a href="signin.html">SignIn</a></li>
