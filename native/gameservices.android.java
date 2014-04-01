@@ -5,6 +5,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.MessageQueue.IdleHandler;
 import android.provider.MediaStore;
+import android.app.Fragment;
+
+import com.google.android.gms.games.achievement.*
 
 class BBGameService extends ActivityDelegate {
 	Activity _activity;
@@ -42,7 +45,7 @@ class BBGameService extends ActivityDelegate {
 				}
             });
 
-			mHelper = new GameHelper(_activity, GameHelper.CLIENT_GAMES);
+			mHelper = new GameHelper(_activity, GameHelper.CLIENT_ALL);
     		mHelper.setup(parent.listener);
 			
 			Looper.loop();
@@ -130,5 +133,5 @@ class BBGameService extends ActivityDelegate {
 	public void setMaxUserSignIns(int count) {
 		mHelper.setMaxAutoSignInAttempts(count);
 	}
-		
+	
 }

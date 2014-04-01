@@ -20,8 +20,6 @@
 #LIBS+="${CD}/native/src/google-play-services.jar"
 Import "native/gameservicesadmob.android.java"
 
-#ANDROID_MANIFEST_APPLICATION+="<activity android:name=~qcom.google.android.gms.ads.AdActivity~q android:configChanges=~qkeyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize~q />"
-
 #End
 
 Extern
@@ -38,4 +36,14 @@ Class Admob Extends Null = "BBGameServiceAdmob"
 	
 	Method AdViewHeight:Int()
 	
+End
+
+
+#Rem
+	Ported from therevills interstitial Ad code
+	Link: http://monkeycoder.co.nz/Community/posts.php?topic=8002
+#END
+Class AdmobInterstitial Extends Null = "BBDAdmobInterstitial"
+	Function GetAdmobInterstitial:AdmobInterstitial(adUnitId:String)
+	Method ShowAd:Void()
 End

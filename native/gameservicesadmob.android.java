@@ -1,5 +1,65 @@
 import com.google.android.gms.ads.*;
 
+class BBDAdmobInterstitial implements Runnable{
+
+	static BBDAdmobInterstitial _admob;
+	InterstitialAd interstitialAd;
+	String adUnitId;
+	
+	static public BBDAdmobInterstitial GetAdmobInterstitial(String adUnitId){
+		if( _admob==null ) _admob=new BBDAdmobInterstitial();
+		_admob.startAd(adUnitId);
+		return _admob;
+	}
+
+	public void ShowAd( ){
+		if (interstitialAd != null ) {
+			if (interstitialAd.isLoaded()) {
+				interstitialAd.show();
+			}
+		}
+	}
+	
+	private void startAd(String adUnitId){
+		this.adUnitId = adUnitId;
+		BBAndroidGame.AndroidGame().GetGameView().post(this);
+	}
+	
+	private void loadAd(){
+		if (interstitialAd != null ) {
+			AdRequest.Builder req=new AdRequest.Builder();
+			interstitialAd.loadAd(req.build());
+		}
+	}
+	
+	public void run(){
+		Activity activity = BBAndroidGame.AndroidGame().GetActivity();
+		interstitialAd = new InterstitialAd( activity );
+		interstitialAd.setAdUnitId(adUnitId);
+		
+		interstitialAd.setAdListener(new AdListener() {
+			
+			public void onAdFailedToLoad(int errorCode) {
+			}			
+			
+			public void onAdClosed() {
+				loadAd();
+			}
+			
+			public void onAdLeftApplication() {
+			}
+			
+			public void onAdLoaded() {
+			}
+			
+			public void onAdOpened() {
+			}
+		});
+		
+		loadAd();
+	}
+}
+
 class BBGameServiceAdmob implements Runnable{
 
 	static BBGameServiceAdmob _admob;
