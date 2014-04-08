@@ -147,6 +147,7 @@ class BBGameServiceAdmob implements Runnable{
 		_adView=new AdView( activity );
         _adView.setAdSize(sz);
         _adView.setAdUnitId(MonkeyConfig.ADMOB_PUBLISHER_ID);
+		_adView.setBackgroundColor(Color.TRANSPARENT); // Little workaround to display the first ad (won't show up without this line)
 		 		
 		RelativeLayout.LayoutParams params=new RelativeLayout.LayoutParams( RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT );
 		
