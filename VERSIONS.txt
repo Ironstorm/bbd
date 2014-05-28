@@ -1,5 +1,10 @@
 ***** v04 *****
 
+- Added isNetworkAvailable()
+- Fixed autologin during onResume
+
+***** v04 *****
+
 - Added interstitial Ads
 
 ***** v03 *****
