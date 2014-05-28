@@ -57,3 +57,8 @@ Reveals a hidden achievement.
 # Method showAchievements:Void()
 
 Shows the player's achievements in the default UI.
+
+# Method isNetworkAvailable:Bool()
+
+Returns true if an internet connection is available.
+
