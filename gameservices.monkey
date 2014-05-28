@@ -39,4 +39,5 @@ Class GameService Extends Null="BBGameService"
 	Method revealAchievement:Void(id:String)
 	Method incrementAchievement:Void(id:String, steps:Int)
 	Method showAchievements:Void()
+	Method isNetworkAvailable:Bool()
 End
